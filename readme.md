@@ -4,6 +4,8 @@
 
 A simple [Fortnox](https://www.fortnox.se/) PHP package, including Laravel Service Provider for easy integration in Laravel.
 
+**Forked from [wetcat-studios/fortie](wetcat-studios/fortie)**
+
 ## Installation
 
 The easiest way to install this package is through Composer.
@@ -12,7 +14,7 @@ The easiest way to install this package is through Composer.
 composer require wetcat/fortie dev-master
 ```
 
-Or add `"wetcat/fortie": "dev-master"` to your `composer.json`.
+Or add `"nivv/fortie": "dev-master"` to your `composer.json`.
 
 If you don't have Composer you should [install it](https://getcomposer.org/download/).
 
