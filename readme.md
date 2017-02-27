@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/wetcat-studios/fortie.svg)](https://travis-ci.org/wetcat-studios/fortie)
 
-# Fortie
+# Fortnox Laravel (fork of [wetcat-studios/fortie](wetcat-studios/fortie))
 
 A simple [Fortnox](https://www.fortnox.se/) PHP package, including Laravel Service Provider for easy integration in Laravel.
 
@@ -25,7 +25,7 @@ In Laravel you change use the published configuration file found at `config/fort
 The **Access Token** is not provided when signing up, you need to get that seperately using your **Auth Code** and **Client Secret**. Read more about this process [here](http://developer.fortnox.se/documentation/general/authentication/).
 
 ```php
-<?php 
+<?php
 
 return [
 
@@ -41,7 +41,7 @@ return [
     'content_type'   => 'application/json',
 
     // The type you're accepting as response
-    'accepts'        => 'application/json', 
+    'accepts'        => 'application/json',
 
     // The URL to the Fortnox API
     'endpoint'       => 'https://api.fortnox.se/3/',
@@ -63,7 +63,7 @@ In laravel the easiest way to use Fortie is to add the ServiceProvider, in `conf
 <?php
 
 return [
-    
+
     ...
 
     'providers' => [
