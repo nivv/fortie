@@ -11,7 +11,7 @@
       {
           "name": "Albin Nilsson",
           "email": "albin.nilsson89@gmail.com"
-      },
+      }
   ],
   "require": {
     "guzzlehttp/guzzle": "~6.0",
