@@ -20,7 +20,6 @@
 
 use Nivv\Fortie\MissingRequiredAttributeException;
 
-
 /**
  * Base provider for the all Fortnox providers, each provider includes a
  * path (the URL extension for the provider, for example "accounts") and
@@ -34,6 +33,7 @@ use Nivv\Fortie\MissingRequiredAttributeException;
  * The response (either XML or JSON) is then turned into an array and
  * retured to the caller.
  */
+
 class ProviderBase
 {
 
@@ -78,69 +78,66 @@ class ProviderBase
    */
   public function __construct(&$client)
   {
-    $this->client = $client;
+      $this->client = $client;
   }
 
 
   /**
    * Handle the response, whether it's JSON or XML.
    */
-  protected function handleResponse (\GuzzleHttp\Psr7\Response $response)
+  protected function handleResponse(\GuzzleHttp\Psr7\Response $response)
   {
-    $content_type = $response->getHeader('Content-Type');
-
-    if (in_array('application/json', $content_type)) {
-      return json_decode($response->getBody());
-    }
-
-    else if (in_array('application/xml', $content_type)) {
-      $reader = new \Sabre\Xml\Reader();
-      $reader->xml($response->getBody());
-      return $reader->parse();
-    }
+      $content_type = $response->getHeader('Content-Type');
+      if (in_array('application/json', $content_type)) {
+          return json_decode($response->getBody());
+      } elseif (in_array('application/xml', $content_type)) {
+          $reader = new \Sabre\Xml\Reader();
+          $reader->xml($response->getBody());
+          return $reader->parse();
+      }
   }
 
   /**
    * Send a HTTP request to Fortnox.
    */
-  public function sendRequest ($method = 'GET', $paths = null, $bodyWrapper = null, $data = null, $params = null, $filePath = null)
+  public function sendRequest($method = 'GET', $paths = null, $bodyWrapper = null, $data = null, $params = null, $filePath = null)
   {
-    // Start building the URL
+      // Start building the URL
     $URL = 'https://api.fortnox.se/3/' . $this->path . '/';
     // Add the extra paths, if there are any
     if (!is_null($paths)) {
-      // If array, add all paths
+        // If array, add all paths
       if (is_array($paths)) {
-        foreach ($paths as $path) {
-          $URL .= $path . '/';
-        }
+          foreach ($paths as $path) {
+              $URL .= $path . '/';
+          }
       }
       // Otherwise, add just the first
       else {
-        $URL .= $paths . '/';
+          $URL .= $paths . '/';
       }
     }
 
     // Apply the URL parameters, this must be an associative array
     if (!is_null($params) && is_array($params)) {
-      $i = 0;
-      foreach ($params as $key => $param) {
-        // ?
+        $i = 0;
+        foreach ($params as $key => $param) {
+            // ?
         if ($i == 0) {
-          $URL .= '?' . $key . '=' . $param;
+            $URL .= '?' . $key . '=' . $param;
         }
         // &
         else {
-          $URL .= '&' . $key . '=' . $param;
+            $URL .= '&' . $key . '=' . $param;
         }
-        $i++;
-      }
+            $i++;
+        }
     }
 
-    $response = null;
+      $response = null;
 
-    try {
-      switch ($method) {
+      try {
+          switch ($method) {
         case 'delete':
         case 'DELETE':
           $response = $this->client->delete($URL);
@@ -150,17 +147,16 @@ class ProviderBase
         case 'GET':
           $response = $this->client->get($URL);
           break;
-        
+
         case 'post':
         case 'POST':
           $body = $this->handleData($bodyWrapper, $data);
           if (is_null($body)) {
-            // Upload file instead of data
+              // Upload file instead of data
             $fileData = Guzzle\Http\EntityBody::factory(fopen($filePath, 'r+'));
-            $response = $this->client->post($URL, $fileData);
-          }
-          else if (!is_null($body) && is_array($body)) {
-            $response = $this->client->post($URL, ['json' => $body]);
+              $response = $this->client->post($URL, $fileData);
+          } elseif (!is_null($body) && is_array($body)) {
+              $response = $this->client->post($URL, ['json' => $body]);
           }
           break;
 
@@ -168,48 +164,47 @@ class ProviderBase
         case 'PUT':
           $body = $this->handleData($bodyWrapper, $data);
           if (is_null($body)) {
-            // Upload file instead of data
+              // Upload file instead of data
             $fileData = Guzzle\Http\EntityBody::factory(fopen($filePath, 'r+'));
-            $response = $this->client->put($URL, $fileData);
-          }
-          else if (!is_null($body) && is_array($body)) {
-            $response = $this->client->put($URL, ['json' => $body]);
+              $response = $this->client->put($URL, $fileData);
+          } elseif (!is_null($body) && is_array($body)) {
+              $response = $this->client->put($URL, ['json' => $body]);
           }
       }
 
-      return $this->handleResponse($response);
-    }
-    catch (\GuzzleHttp\Exception\ClientException $e) {
-      $response = $e->getResponse();
-      $responseBodyAsString = $response->getBody()->getContents();
+          return $this->handleResponse($response);
+      } catch (\GuzzleHttp\Exception\ClientException $e) {
+          $response = $e->getResponse();
+          $responseBodyAsString = $response->getBody()->getContents();
       //echo $responseBodyAsString;
-    }
+      }
   }
 
 
   /**
-   * This will perform filtering on the supplied data, used when 
+   * This will perform filtering on the supplied data, used when
    * uploading data to Fortnox.
    */
-  protected function handleData ($bodyWrapper, $data, $sanitize = true)
+  protected function handleData($bodyWrapper, $data, $sanitize = true)
   {
-    // Filter invalid data
-    $filtered = array_intersect_key($data, array_flip($this->attributes));;
+      // Filter invalid data
+    $filtered = array_intersect_key($data, array_flip($this->attributes));
+      ;
 
     // Filter non-writeable data
     $writeable = array_intersect_key($filtered, array_flip($this->writeable));
 
     // Make sure all required data are set
     if (! count(array_intersect_key(array_flip($this->required), $writeable)) === count($this->required)) {
-      throw new MissingRequiredAttributeException;
+        throw new MissingRequiredAttributeException;
     }
 
-    // Sanitize input 
+    // Sanitize input
     // See: http://guzzle3.readthedocs.org/http-client/request.html#post-requests
     if ($sanitize) {
-      foreach ($writeable as $key => $value) {
-        $value = str_replace('@', '', $value);
-      }
+        foreach ($writeable as $key => $value) {
+            $value = str_replace('@', '', $value);
+        }
     }
 
     // Wrap the body as required by Fortnox
@@ -217,8 +212,6 @@ class ProviderBase
       $bodyWrapper => $writeable
     ];
 
-    print_r($body);
-    return $body;
+      return $body;
   }
-
 }
