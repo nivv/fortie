@@ -11,10 +11,10 @@ A simple [Fortnox](https://www.fortnox.se/) PHP package, including Laravel Servi
 The easiest way to install this package is through Composer.
 
 ```
-composer require nivv/fortie dev-master
+composer require nivv/fortnox-laravel dev-master
 ```
 
-Or add `"nivv/fortie": "dev-master"` to your `composer.json`.
+Or add `"nivv/fortnox-laravel": "dev-master"` to your `composer.json`.
 
 If you don't have Composer you should [install it](https://getcomposer.org/download/).
 
