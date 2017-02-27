@@ -11,7 +11,7 @@ A simple [Fortnox](https://www.fortnox.se/) PHP package, including Laravel Servi
 The easiest way to install this package is through Composer.
 
 ```
-composer require wetcat/fortie dev-master
+composer require nivv/fortie dev-master
 ```
 
 Or add `"nivv/fortie": "dev-master"` to your `composer.json`.
