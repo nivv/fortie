@@ -1,5 +1,5 @@
 {
-  "name": "nivv/fortie",
+  "name": "nivv/fortnox-laravel",
   "description": "Enable simple Fortnox integration",
   "license": "Apache-2.0",
   "keywords": ["fortie", "Fortnox", "Laravel"],

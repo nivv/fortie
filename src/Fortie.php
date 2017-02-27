@@ -37,7 +37,7 @@ use Nivv\Fortie\Providers\Vouchers\Provider as VoucherProvider;
 
 /**
  * Starting point for all interactions with the Fortnox API. After
- * setting this class up it will automatically register all the 
+ * setting this class up it will automatically register all the
  * providers.
  */
 class Fortie
