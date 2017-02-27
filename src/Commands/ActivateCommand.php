@@ -1,4 +1,4 @@
-<?php namespace Wetcat\Fortie\Commands;
+<?php namespace Nivv\Fortie\Commands;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;

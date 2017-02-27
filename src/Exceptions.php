@@ -1,4 +1,4 @@
-<?php namespace Wetcat\Fortie;
+<?php namespace Nivv\Fortie;
 
 /*
 

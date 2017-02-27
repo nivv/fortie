@@ -1,4 +1,4 @@
-<?php namespace Wetcat\Fortie\Providers;
+<?php namespace Nivv\Fortie\Providers;
 
 /*
 
@@ -18,7 +18,7 @@
 
 */
 
-use Wetcat\Fortie\MissingRequiredAttributeException;
+use Nivv\Fortie\MissingRequiredAttributeException;
 
 
 /**

@@ -1,4 +1,4 @@
-<?php namespace Wetcat\Fortie;
+<?php namespace Nivv\Fortie;
 
 /*
 
@@ -31,9 +31,9 @@ class FortieServiceProvider extends ServiceProvider
    * @var bool
    */
   protected $defer = false;
-  
+
   protected $commands = [
-    'Wetcat\Fortie\Commands\ActivateCommand',
+    'Nivv\Fortie\Commands\ActivateCommand',
   ];
 
 
@@ -44,7 +44,7 @@ class FortieServiceProvider extends ServiceProvider
    */
   public function boot()
   {
-    //$this->package('wetcat/fortie');
+    //$this->package('nivv/fortie');
 
     $this->publishes([
       __DIR__.'/config/config.php' => config_path('fortie.php'),
@@ -62,7 +62,7 @@ class FortieServiceProvider extends ServiceProvider
     $this->mergeConfigFrom(
       __DIR__.'/config/config.php', 'fortie'
     );
-    
+
     $this->commands($this->commands);
 
     $this->registerFortie();
@@ -87,7 +87,7 @@ class FortieServiceProvider extends ServiceProvider
    */
   protected function registerFortie()
   {
-    $this->app->singleton('Wetcat\Fortie\Fortie', function ($app) 
+    $this->app->singleton('Nivv\Fortie\Fortie', function ($app)
     {
       $access_token   = Config::get('fortie.default.access_token', Config::get('fortie::default.access_token'));
       $client_secret  = Config::get('fortie.default.client_secret', Config::get('fortie::default.client_secret'));

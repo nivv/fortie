@@ -1,4 +1,4 @@
-<?php namespace Wetcat\Fortie\Providers\Contracts;
+<?php namespace Nivv\Fortie\Providers\Contracts;
 
 /*
 
@@ -18,7 +18,7 @@
 
 */
 
-use Wetcat\Fortie\Providers\ProviderBase;
+use Nivv\Fortie\Providers\ProviderBase;
 
 
 class Provider extends ProviderBase {

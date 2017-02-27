@@ -1,4 +1,4 @@
-<?php namespace Wetcat\Fortie;
+<?php namespace Nivv\Fortie;
 
 /*
 
@@ -18,22 +18,22 @@
 
 */
 
-use Wetcat\Fortie\Providers\Accounts\Provider as AccountProvider;
-use Wetcat\Fortie\Providers\Archive\Provider as ArchiveProvider;
-use Wetcat\Fortie\Providers\Articles\Provider as ArticleProvider;
-use Wetcat\Fortie\Providers\CompanySettings\Provider as CompanySettingsProvider;
-use Wetcat\Fortie\Providers\Contracts\Provider as ContractProvider;
-use Wetcat\Fortie\Providers\Invoices\Provider as InvoiceProvider;
-use Wetcat\Fortie\Providers\Offers\Provider as OfferProvider;
-use Wetcat\Fortie\Providers\Customers\Provider as CustomerProvider;
-use Wetcat\Fortie\Providers\Currencies\Provider as CurrencyProvider;
-use Wetcat\Fortie\Providers\Orders\Provider as OrderProvider;
-use Wetcat\Fortie\Providers\PriceLists\Provider as PriceListProvider;
-use Wetcat\Fortie\Providers\Prices\Provider as PriceProvider;
-use Wetcat\Fortie\Providers\Projects\Provider as ProjectProvider;
-use Wetcat\Fortie\Providers\Suppliers\Provider as SupplierProvider;
-use Wetcat\Fortie\Providers\Units\Provider as UnitProvider;
-use Wetcat\Fortie\Providers\Vouchers\Provider as VoucherProvider;
+use Nivv\Fortie\Providers\Accounts\Provider as AccountProvider;
+use Nivv\Fortie\Providers\Archive\Provider as ArchiveProvider;
+use Nivv\Fortie\Providers\Articles\Provider as ArticleProvider;
+use Nivv\Fortie\Providers\CompanySettings\Provider as CompanySettingsProvider;
+use Nivv\Fortie\Providers\Contracts\Provider as ContractProvider;
+use Nivv\Fortie\Providers\Invoices\Provider as InvoiceProvider;
+use Nivv\Fortie\Providers\Offers\Provider as OfferProvider;
+use Nivv\Fortie\Providers\Customers\Provider as CustomerProvider;
+use Nivv\Fortie\Providers\Currencies\Provider as CurrencyProvider;
+use Nivv\Fortie\Providers\Orders\Provider as OrderProvider;
+use Nivv\Fortie\Providers\PriceLists\Provider as PriceListProvider;
+use Nivv\Fortie\Providers\Prices\Provider as PriceProvider;
+use Nivv\Fortie\Providers\Projects\Provider as ProjectProvider;
+use Nivv\Fortie\Providers\Suppliers\Provider as SupplierProvider;
+use Nivv\Fortie\Providers\Units\Provider as UnitProvider;
+use Nivv\Fortie\Providers\Vouchers\Provider as VoucherProvider;
 
 /**
  * Starting point for all interactions with the Fortnox API. After

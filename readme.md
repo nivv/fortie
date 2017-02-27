@@ -70,7 +70,7 @@ return [
 
         ...
 
-        Wetcat\Fortie\FortieServiceProvider::class,
+        Nivv\Fortie\FortieServiceProvider::class,
 
     ],
 
@@ -121,7 +121,7 @@ Of course you can also inject Fortie into any Laravel controller method to limit
 
 ```php
 
-use Wetcat\Fortie\Fortie as Fortie;
+use Nivv\Fortie\Fortie as Fortie;
 
 class MyController extends Controller
 {

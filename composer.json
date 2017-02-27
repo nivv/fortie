@@ -1,13 +1,17 @@
 {
-  "name": "wetcat/fortie",
+  "name": "nivv/fortie",
   "description": "Enable simple Fortnox integration",
   "license": "Apache-2.0",
   "keywords": ["fortie", "Fortnox", "Laravel"],
   "authors": [
-    {
-      "name": "Andreas Göransson",
-      "email": "andreasgoransson0@gmail.com"
-    }
+      {
+          "name": "Andreas Göransson",
+          "email": "andreasgoransson0@gmail.com"
+      },
+      {
+          "name": "Albin Nilsson",
+          "email": "albin.nilsson89@gmail.com"
+      },
   ],
   "require": {
     "guzzlehttp/guzzle": "~6.0",
@@ -18,7 +22,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Wetcat\\Fortie\\": "src"
+      "Nivv\\Fortie\\": "src"
     }
   }
 }
